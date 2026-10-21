@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>BS-DASC-1A Date Sheet | October 2026</title>
+<meta name="description" content="Interactive BS-DASC-1A exam date sheet for 26–31 October 2026, with countdowns, preparation tracking, notes, and calendar links.">
+<meta name="theme-color" content="#0f1b33">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="BS-DASC-1A Date Sheet">
+<meta property="og:description" content="Six exam papers from 26 to 31 October 2026, with a live countdown and preparation tracker.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a departure-board style timetable. Big condensed date numerals on the left of each paper, a live countdown to the next paper on top. */
+:root {
+  --bg: #eef1f6;
+  --surface: #fbfcfe;
+  --ink: #0f1b33;
+  --muted: #566480;
+  --line: #d3dae7;
+  --accent: #2447d6;
+  --accent-ink: #ffffff;
+  --accent-soft: #e1e8fd;
+  --hero-bg: #0f1b33;
+  --hero-fg: #f2f5fc;
+  --hero-muted: #a9b6d2;
+  --ok: #1d7a4b;
+  --ok-soft: #dff3e8;
+  --warn: #9a4a07;
+  --warn-soft: #fbe8d4;
+  --font-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0a111f;
+    --surface: #111b2f;
+    --ink: #e8edf8;
+    --muted: #93a0bc;
+    --line: #243250;
+    --accent: #86a2ff;
+    --accent-ink: #0a111f;
+    --accent-soft: #1b2a52;
+    --hero-bg: #16264a;
+    --hero-fg: #f2f5fc;
+    --hero-muted: #a9b6d2;
+    --ok: #6fd3a0;
+    --ok-soft: #14352a;
+    --warn: #f0b36e;
+    --warn-soft: #3a2a14;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0a111f;
+  --surface: #111b2f;
+  --ink: #e8edf8;
+  --muted: #93a0bc;
+  --line: #243250;
+  --accent: #86a2ff;
+  --accent-ink: #0a111f;
+  --accent-soft: #1b2a52;
+  --hero-bg: #16264a;
+  --hero-fg: #f2f5fc;
+  --hero-muted: #a9b6d2;
+  --ok: #6fd3a0;
+  --ok-soft: #14352a;
+  --warn: #f0b36e;
+  --warn-soft: #3a2a14;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.5;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 48px;
+}
+.wrap { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 22px; }
+.wrap > * { min-width: 0; }
+
+a { color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+/* Header */
+.head { display: flex; flex-direction: column; gap: 6px; }
+.eyebrow { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.4rem, 9vw, 3.8rem);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  margin: 0;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.sub { color: var(--muted); margin: 0; max-width: 60ch; }
+
+/* Hero countdown */
+.hero {
+  background: var(--hero-bg);
+  color: var(--hero-fg);
+  border-radius: 14px;
+  padding: 22px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px 28px;
+  align-items: center;
+}
+.hero-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--hero-muted); }
+.hero-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.9rem, 6vw, 2.6rem); line-height: 1; margin: 6px 0 8px; text-wrap: balance; }
+.hero-meta { color: var(--hero-muted); font-size: 14px; margin: 0; }
+.clock { display: flex; gap: 10px; }
+.unit { display: flex; flex-direction: column; align-items: center; min-width: 58px; }
+.unit b {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 3rem;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.unit span { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--hero-muted); }
+.hero-state { font-family: var(--font-display); font-weight: 800; font-size: 2.4rem; line-height: 1; }
+@media (max-width: 560px) {
+  .hero { grid-template-columns: minmax(0, 1fr); padding: 18px; }
+  .clock { justify-content: space-between; }
+  .unit { min-width: 0; flex: 1; }
+  .unit b { font-size: 2.5rem; }
+}
+
+/* Timeline strip */
+.strip { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
+.chip {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 8px 4px 7px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 1.3;
+  color: var(--muted);
+  position: relative;
+}
+.chip strong { display: block; font-family: var(--font-display); font-size: 1.5rem; line-height: 1; color: var(--ink); font-weight: 800; }
+.chip.past { opacity: 0.55; }
+.chip.today { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.chip.today strong { color: var(--accent-ink); }
+.chip.next { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.chip.prepared::after {
+  content: "";
+  position: absolute; left: 50%; bottom: -4px; transform: translateX(-50%);
+  width: 18px; height: 3px; border-radius: 2px; background: var(--ok);
+}
+
+/* Progress + tools */
+.tools { display: flex; flex-direction: column; gap: 12px; }
+.progress { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--muted); }
+.bar { flex: 1; height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; }
+.bar i { display: block; height: 100%; width: 0; background: var(--ok); border-radius: 999px; transition: width 0.3s; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.search { flex: 1 1 220px; min-width: 0; }
+input[type="search"], textarea {
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 9px 12px;
+  width: 100%;
+}
+textarea { resize: vertical; min-height: 64px; font-size: 14px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: var(--surface); }
+.seg button {
+  font: inherit; font-size: 13px; color: var(--muted); background: transparent;
+  border: 0; padding: 9px 13px; cursor: pointer;
+}
+.seg button + button { border-left: 1px solid var(--line); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.btn {
+  font: inherit; font-size: 13px; font-weight: 500;
+  color: var(--ink); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 8px;
+  padding: 9px 13px; cursor: pointer; text-decoration: none; display: inline-block;
+}
+.btn:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Paper rows */
+.list { display: flex; flex-direction: column; gap: 12px; }
+.paper {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+}
+.paper.today { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.paper.past { opacity: 0.7; }
+.date {
+  border-right: 1px dashed var(--line);
+  padding: 14px 8px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+}
+.date .d { font-family: var(--font-display); font-weight: 800; font-size: 3.4rem; line-height: 0.9; font-variant-numeric: tabular-nums; }
+.date .m { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+.date .w { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); }
+.body { padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.top { display: flex; flex-wrap: wrap; gap: 6px 12px; align-items: baseline; justify-content: space-between; }
+.name { font-weight: 600; font-size: 1.1rem; margin: 0; text-wrap: balance; }
+.code { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+  font-size: 12.5px; padding: 3px 9px; border-radius: 999px;
+  background: var(--accent-soft); color: var(--ink); white-space: nowrap;
+}
+.tag.pending { background: var(--warn-soft); color: var(--warn); }
+.tag.room { background: var(--ok-soft); color: var(--ok); font-family: var(--font-mono); }
+.acts { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; }
+.check { display: inline-flex; gap: 8px; align-items: center; cursor: pointer; font-size: 14px; }
+.check input { width: 18px; height: 18px; accent-color: var(--accent); margin: 0; }
+.link { font-size: 13px; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; font-family: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.note { display: none; }
+.note.open { display: block; }
+.empty { border: 1px dashed var(--line); border-radius: 12px; padding: 28px 16px; text-align: center; color: var(--muted); }
+
+.foot { font-size: 13px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
+.toast {
+  position: fixed; left: 50%; transform: translateX(-50%);
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  background: var(--ink); color: var(--bg);
+  padding: 9px 16px; border-radius: 8px; font-size: 13px; z-index: 20;
+}
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+@media (max-width: 460px) {
+  .paper { grid-template-columns: 74px minmax(0, 1fr); }
+  .date .d { font-size: 2.8rem; }
+  .body { padding: 12px; }
+}
+</style>
+</head>
+<body>
+
+<main class="wrap">
+  <header class="head">
+    <div class="eyebrow">Exam department · Date sheet</div>
+    <h1>BS-DASC-1A<br>Date Sheet</h1>
+    <p class="sub" id="summary">Six papers, 26 to 31 October 2026.</p>
+  </header>
+
+  <section class="hero" aria-live="off" id="hero">
+    <div>
+      <div class="hero-label" id="heroLabel">Next paper</div>
+      <div class="hero-title" id="heroTitle">Loading</div>
+      <p class="hero-meta" id="heroMeta"></p>
+    </div>
+    <div class="clock" id="clock" role="timer" aria-label="Time until the next paper">
+      <div class="unit"><b id="cd">0</b><span>Days</span></div>
+      <div class="unit"><b id="ch">00</b><span>Hrs</span></div>
+      <div class="unit"><b id="cm">00</b><span>Min</span></div>
+      <div class="unit"><b id="cs">00</b><span>Sec</span></div>
+    </div>
+  </section>
+
+  <section class="strip" id="strip" aria-label="Week at a glance"></section>
+
+  <section class="tools">
+    <div class="progress">
+      <span id="progText">0 of 6 papers prepared</span>
+      <div class="bar" aria-hidden="true"><i id="progBar"></i></div>
+    </div>
+    <div class="controls">
+      <div class="search">
+        <label class="sr" for="q">Search papers</label>
+        <input type="search" id="q" placeholder="Search course, code or venue">
+      </div>
+      <div class="seg" role="group" aria-label="Filter papers">
+        <button type="button" id="fAll" aria-pressed="true">All</button>
+        <button type="button" id="fUp" aria-pressed="false">Upcoming</button>
+        <button type="button" id="fDone" aria-pressed="false">Done</button>
+      </div>
+      <button type="button" class="btn" id="copyBtn">Copy date sheet</button>
+    </div>
+  </section>
+
+  <section class="list" id="list" aria-label="Papers"></section>
+
+  <footer class="foot">
+    <span>Start times have not been published. Countdowns run to 12:00 am of each exam day, Pakistan time.</span>
+    <span>Check marks and notes are saved in this browser only.</span>
+  </footer>
+</main>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function () {
+  var EXAMS = [
+    { iso: "2026-10-26", day: "Monday",    code: "COSC-1105", name: "Introduction to ICT",          venue: null,           marks: 50 },
+    { iso: "2026-10-27", day: "Tuesday",   code: "ENGL-1118", name: "Functional English",           venue: null,           marks: 50 },
+    { iso: "2026-10-28", day: "Wednesday", code: "PHYS-1135", name: "Natural Sciences",             venue: null,           marks: 50 },
+    { iso: "2026-10-29", day: "Thursday",  code: "DASC-1101", name: "Introduction to Data Science", venue: "COSC 1.03R",   marks: 50 },
+    { iso: "2026-10-30", day: "Friday",    code: "ISLS-1112", name: "Islamic Studies",              venue: null,           marks: 50 },
+    { iso: "2026-10-31", day: "Saturday",  code: "DASC-1102", name: "Programming Fundamentals",     venue: "COSC-2.16L",   marks: 50 }
+  ];
+  var MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  var KEY = "dasc1a-datesheet-v1";
+  var filter = "all";
+  var state = { done: {}, notes: {} };
+
+  function $(id) { return document.getElementById(id); }
+  function load() {
+    try { var s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s && s.done && s.notes) state = s; } catch (e) {}
+  }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+
+  function pkToday() { return new Date(Date.now() + 5 * 3600 * 1000).toISOString().slice(0, 10); }
+  function startMs(iso) { return Date.parse(iso + "T00:00:00+05:00"); }
+  function status(e) {
+    var t = pkToday();
+    return e.iso < t ? "past" : (e.iso === t ? "today" : "upcoming");
+  }
+  function parts(iso) { var p = iso.split("-"); return { y: +p[0], m: +p[1] - 1, d: +p[2] }; }
+  function longDate(e) { var p = parts(e.iso); return e.day + ", " + p.d + " " + MONTHS[p.m] + " " + p.y; }
+  function venueText(e) { return e.venue ? e.venue : "Venue to be announced by the exam department"; }
+  function nextExam() {
+    for (var i = 0; i < EXAMS.length; i++) if (status(EXAMS[i]) !== "past") return EXAMS[i];
+    return null;
+  }
+  function gcal(e) {
+    var p = parts(e.iso);
+    function pad(n) { return (n < 10 ? "0" : "") + n; }
+    var s = p.y + pad(p.m + 1) + pad(p.d);
+    var n = new Date(Date.UTC(p.y, p.m, p.d + 1));
+    var end = n.getUTCFullYear() + pad(n.getUTCMonth() + 1) + pad(n.getUTCDate());
+    var q = "action=TEMPLATE" +
+      "&text=" + encodeURIComponent(e.name + " exam (" + e.code + ")") +
+      "&dates=" + s + "/" + end +
+      "&details=" + encodeURIComponent("BS-DASC-1A · " + e.marks + " marks · " + venueText(e) + ". Start time not yet announced.") +
+      "&location=" + encodeURIComponent(e.venue || "");
+    return "https://calendar.google.com/calendar/render?" + q;
+  }
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+
+  function renderSummary() {
+    var gaps = true;
+    for (var i = 1; i < EXAMS.length; i++) {
+      if (startMs(EXAMS[i].iso) - startMs(EXAMS[i - 1].iso) !== 86400000) gaps = false;
+    }
+    $("summary").textContent = EXAMS.length + " papers on " + EXAMS.length + " consecutive days, 26 to 31 October 2026" +
+      (gaps ? ". There is no rest day between papers." : ".");
+  }
+
+  function renderStrip() {
+    var nx = nextExam();
+    var html = "";
+    EXAMS.forEach(function (e) {
+      var st = status(e), p = parts(e.iso);
+      var cls = "chip " + st + (nx && nx.code === e.code ? " next" : "") + (state.done[e.code] ? " prepared" : "");
+      html += '<div class="' + cls + '"><strong>' + p.d + "</strong>" + e.day.slice(0, 3) + "</div>";
+    });
+    $("strip").innerHTML = html;
+  }
+
+  function renderProgress() {
+    var n = EXAMS.filter(function (e) { return state.done[e.code]; }).length;
+    $("progText").textContent = n + " of " + EXAMS.length + " papers prepared";
+    $("progBar").style.width = (n / EXAMS.length * 100) + "%";
+  }
+
+  function renderHeroStatic() {
+    var nx = nextExam();
+    if (!nx) {
+      $("heroLabel").textContent = "All papers";
+      $("heroTitle").textContent = "Exams are finished";
+      $("heroMeta").textContent = "Every paper on this date sheet has passed.";
+      $("clock").innerHTML = '<div class="hero-state">Done</div>';
+      return;
+    }
+    var today = status(nx) === "today";
+    $("heroLabel").textContent = today ? "Paper today" : "Next paper";
+    $("heroTitle").textContent = nx.name;
+    $("heroMeta").textContent = longDate(nx) + " · " + nx.code + " · " + (nx.venue || "Venue to be announced");
+  }
+
+  function tick() {
+    var nx = nextExam();
+    if (!nx) return;
+    if (status(nx) === "today") {
+      if (!document.querySelector(".hero-state")) {
+        $("clock").innerHTML = '<div class="hero-state">Today</div>';
+        renderHeroStatic();
+      }
+      return;
+    }
+    var diff = Math.max(0, startMs(nx.iso) - Date.now());
+    var d = Math.floor(diff / 86400000);
+    var h = Math.floor(diff % 86400000 / 3600000);
+    var m = Math.floor(diff % 3600000 / 60000);
+    var s = Math.floor(diff % 60000 / 1000);
+    function two(n) { return (n < 10 ? "0" : "") + n; }
+    var a = $("cd"); if (!a) return;
+    a.textContent = d;
+    $("ch").textContent = two(h);
+    $("cm").textContent = two(m);
+    $("cs").textContent = two(s);
+  }
+
+  function renderList() {
+    var q = $("q").value.trim().toLowerCase();
+    var nx = nextExam();
+    var rows = EXAMS.filter(function (e) {
+      var st = status(e);
+      if (filter === "up" && st === "past") return false;
+      if (filter === "done" && st !== "past") return false;
+      if (!q) return true;
+      return (e.name + " " + e.code + " " + (e.venue || "to be announced tba") + " " + e.day).toLowerCase().indexOf(q) !== -1;
+    });
+    if (!rows.length) {
+      $("list").innerHTML = '<div class="empty">No papers match. Clear the search or switch the filter to All.</div>';
+      return;
+    }
+    var html = "";
+    rows.forEach(function (e) {
+      var st = status(e), p = parts(e.iso);
+      var checked = state.done[e.code] ? " checked" : "";
+      var note = state.notes[e.code] || "";
+      var open = note ? " open" : "";
+      var venueTag = e.venue
+        ? '<span class="tag room">' + esc(e.venue) + "</span>"
+        : '<span class="tag pending">Venue to be announced</span>';
+      html +=
+        '<article class="paper ' + st + '" data-code="' + e.code + '">' +
+          '<div class="date"><span class="w">' + e.day.slice(0, 3) + '</span><span class="d">' + p.d + '</span><span class="m">' + MONTHS[p.m].slice(0, 3) + " " + p.y + "</span></div>" +
+          '<div class="body">' +
+            '<div class="top"><h2 class="name">' + esc(e.name) + '</h2><span class="code">' + e.code + "</span></div>" +
+            '<div class="facts">' + venueTag +
+              '<span class="tag">' + e.marks + " marks</span>" +
+              '<span class="tag pending">Time to be announced</span>' +
+              (st === "today" ? '<span class="tag room">Today</span>' : "") +
+              (nx && nx.code === e.code && st !== "today" ? '<span class="tag room">Next up</span>' : "") +
+            "</div>" +
+            '<div class="acts">' +
+              '<label class="check" for="prep-' + e.code + '"><input type="checkbox" id="prep-' + e.code + '" data-prep="' + e.code + '"' + checked + "> Prepared</label>" +
+              '<a class="link" href="' + gcal(e) + '" target="_blank" rel="noopener">Add to Google Calendar</a>' +
+              '<button type="button" class="link" data-note="' + e.code + '">' + (note ? "Edit note" : "Add note") + "</button>" +
+            "</div>" +
+            '<div class="note' + open + '" id="note-wrap-' + e.code + '">' +
+              '<label class="sr" for="note-' + e.code + '">Note for ' + esc(e.name) + "</label>" +
+              '<textarea id="note-' + e.code + '" data-notefield="' + e.code + '" placeholder="Chapters to revise, things to bring, anything to remember">' + esc(note) + "</textarea>" +
+            "</div>" +
+          "</div>" +
+        "</article>";
+    });
+    $("list").innerHTML = html;
+  }
+
+  function renderAll() { renderStrip(); renderProgress(); renderList(); }
+
+  var toastTimer;
+  function toast(msg) {
+    var t = $("toast"); t.textContent = msg; t.hidden = false;
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { t.hidden = true; }, 2200);
+  }
+
+  function sheetText() {
+    var lines = ["BS-DASC-1A Date Sheet (exam times not yet announced)", ""];
+    EXAMS.forEach(function (e) {
+      lines.push(longDate(e) + " | " + e.code + " | " + e.name + " | " + (e.venue || "Venue TBA") + " | " + e.marks + " marks");
+    });
+    return lines.join("\n");
+  }
+  function fallbackCopy(text) {
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.setAttribute("readonly", "");
+    ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(ta);
+    return ok;
+  }
+  $("copyBtn").addEventListener("click", function () {
+    var text = sheetText();
+    function done(ok) { toast(ok ? "Date sheet copied" : "Copy is blocked here. Select the text on the page instead."); }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(fallbackCopy(text)); });
+    } else { done(fallbackCopy(text)); }
+  });
+
+  function setFilter(f) {
+    filter = f;
+    $("fAll").setAttribute("aria-pressed", f === "all");
+    $("fUp").setAttribute("aria-pressed", f === "up");
+    $("fDone").setAttribute("aria-pressed", f === "done");
+    renderList();
+  }
+  $("fAll").addEventListener("click", function () { setFilter("all"); });
+  $("fUp").addEventListener("click", function () { setFilter("up"); });
+  $("fDone").addEventListener("click", function () { setFilter("done"); });
+  $("q").addEventListener("input", renderList);
+
+  $("list").addEventListener("change", function (ev) {
+    var c = ev.target.getAttribute("data-prep");
+    if (!c) return;
+    if (ev.target.checked) state.done[c] = true; else delete state.done[c];
+    save(); renderStrip(); renderProgress();
+  });
+  $("list").addEventListener("input", function (ev) {
+    var c = ev.target.getAttribute("data-notefield");
+    if (!c) return;
+    var v = ev.target.value;
+    if (v.trim()) state.notes[c] = v; else delete state.notes[c];
+    save();
+  });
+  $("list").addEventListener("click", function (ev) {
+    var c = ev.target.getAttribute && ev.target.getAttribute("data-note");
+    if (!c) return;
+    var w = $("note-wrap-" + c);
+    w.classList.toggle("open");
+    if (w.classList.contains("open")) $("note-" + c).focus();
+  });
+
+  load();
+  renderSummary();
+  renderHeroStatic();
+  renderAll();
+  tick();
+  setInterval(function () { tick(); }, 1000);
+  setInterval(function () { renderHeroStatic(); renderStrip(); }, 60000);
+})();
+</script>
+
+</body></html>
