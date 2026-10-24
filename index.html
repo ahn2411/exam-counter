@@ -1,17 +1,6 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>BS-DASC-1A Date Sheet | October 2026</title>
-<meta name="description" content="Interactive BS-DASC-1A exam date sheet for 26–31 October 2026, with countdowns, preparation tracking, notes, and calendar links.">
-<meta name="theme-color" content="#0f1b33">
-<meta name="color-scheme" content="light dark">
-<meta property="og:type" content="website">
-<meta property="og:title" content="BS-DASC-1A Date Sheet">
-<meta property="og:description" content="Six exam papers from 26 to 31 October 2026, with a live countdown and preparation tracker.">
-<meta name="twitter:card" content="summary">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>BS-DASC-1A Date Sheet</title>
+<meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
 /* Layout: a departure-board style timetable. Big condensed date numerals on the left of each paper, a live countdown to the next paper on top. */
@@ -120,7 +109,8 @@ h1 {
 .hero-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--hero-muted); }
 .hero-title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.9rem, 6vw, 2.6rem); line-height: 1; margin: 6px 0 8px; text-wrap: balance; }
 .hero-meta { color: var(--hero-muted); font-size: 14px; margin: 0; }
-.clock { display: flex; gap: 10px; }
+.clock { min-width: 0; }
+.digits { display: flex; gap: 10px; }
 .unit { display: flex; flex-direction: column; align-items: center; min-width: 58px; }
 .unit b {
   font-family: var(--font-display);
@@ -130,10 +120,10 @@ h1 {
   font-variant-numeric: tabular-nums;
 }
 .unit span { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--hero-muted); }
-.hero-state { font-family: var(--font-display); font-weight: 800; font-size: 2.4rem; line-height: 1; }
+.hero-state { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem, 5vw, 2.2rem); line-height: 1.05; }
 @media (max-width: 560px) {
   .hero { grid-template-columns: minmax(0, 1fr); padding: 18px; }
-  .clock { justify-content: space-between; }
+  .digits { justify-content: space-between; }
   .unit { min-width: 0; flex: 1; }
   .unit b { font-size: 2.5rem; }
 }
@@ -204,7 +194,7 @@ textarea { resize: vertical; min-height: 64px; font-size: 14px; }
   display: grid;
   grid-template-columns: 92px minmax(0, 1fr);
 }
-.paper.today { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.paper.today, .paper.live { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
 .paper.past { opacity: 0.7; }
 .date {
   border-right: 1px dashed var(--line);
@@ -230,8 +220,19 @@ textarea { resize: vertical; min-height: 64px; font-size: 14px; }
 .check { display: inline-flex; gap: 8px; align-items: center; cursor: pointer; font-size: 14px; }
 .check input { width: 18px; height: 18px; accent-color: var(--accent); margin: 0; }
 .link { font-size: 13px; color: var(--accent); background: none; border: 0; padding: 0; cursor: pointer; font-family: inherit; text-decoration: underline; text-underline-offset: 3px; }
-.note { display: none; }
-.note.open { display: block; }
+.note-edit { display: flex; flex-direction: column; gap: 8px; }
+.note-btns { display: flex; gap: 8px; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.primary:hover { color: var(--accent-ink); opacity: 0.9; }
+.saved {
+  background: var(--accent-soft);
+  border-radius: 8px;
+  padding: 10px 12px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.saved-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.saved p { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px; }
+.saved .row { display: flex; gap: 14px; }
 .empty { border: 1px dashed var(--line); border-radius: 12px; padding: 28px 16px; text-align: center; color: var(--muted); }
 
 .foot { font-size: 13px; color: var(--muted); display: flex; flex-direction: column; gap: 4px; }
@@ -249,8 +250,6 @@ textarea { resize: vertical; min-height: 64px; font-size: 14px; }
   .body { padding: 12px; }
 }
 </style>
-</head>
-<body>
 
 <main class="wrap">
   <header class="head">
@@ -266,10 +265,13 @@ textarea { resize: vertical; min-height: 64px; font-size: 14px; }
       <p class="hero-meta" id="heroMeta"></p>
     </div>
     <div class="clock" id="clock" role="timer" aria-label="Time until the next paper">
-      <div class="unit"><b id="cd">0</b><span>Days</span></div>
-      <div class="unit"><b id="ch">00</b><span>Hrs</span></div>
-      <div class="unit"><b id="cm">00</b><span>Min</span></div>
-      <div class="unit"><b id="cs">00</b><span>Sec</span></div>
+      <div class="digits" id="clockDigits">
+        <div class="unit"><b id="cd">0</b><span>Days</span></div>
+        <div class="unit"><b id="ch">00</b><span>Hrs</span></div>
+        <div class="unit"><b id="cm">00</b><span>Min</span></div>
+        <div class="unit"><b id="cs">00</b><span>Sec</span></div>
+      </div>
+      <div class="hero-state" id="clockState" hidden></div>
     </div>
   </section>
 
@@ -297,7 +299,7 @@ textarea { resize: vertical; min-height: 64px; font-size: 14px; }
   <section class="list" id="list" aria-label="Papers"></section>
 
   <footer class="foot">
-    <span>Start times have not been published. Countdowns run to 12:00 am of each exam day, Pakistan time.</span>
+    <span>Introduction to ICT, Functional English, Natural Sciences and Islamic Studies start at 9:15 am. Introduction to Data Science and Programming Fundamentals start at 11:25 am. Every paper runs 70 minutes. All times are Pakistan time.</span>
     <span>Check marks and notes are saved in this browser only.</span>
   </footer>
 </main>
@@ -305,17 +307,20 @@ textarea { resize: vertical; min-height: 64px; font-size: 14px; }
 
 <script>
 (function () {
+  var DUR = 70, MARKS = 25;
   var EXAMS = [
-    { iso: "2026-10-26", day: "Monday",    code: "COSC-1105", name: "Introduction to ICT",          venue: null,           marks: 50 },
-    { iso: "2026-10-27", day: "Tuesday",   code: "ENGL-1118", name: "Functional English",           venue: null,           marks: 50 },
-    { iso: "2026-10-28", day: "Wednesday", code: "PHYS-1135", name: "Natural Sciences",             venue: null,           marks: 50 },
-    { iso: "2026-10-29", day: "Thursday",  code: "DASC-1101", name: "Introduction to Data Science", venue: "COSC 1.03R",   marks: 50 },
-    { iso: "2026-10-30", day: "Friday",    code: "ISLS-1112", name: "Islamic Studies",              venue: null,           marks: 50 },
-    { iso: "2026-10-31", day: "Saturday",  code: "DASC-1102", name: "Programming Fundamentals",     venue: "COSC-2.16L",   marks: 50 }
+    { iso: "2026-10-26", day: "Monday",    code: "COSC-1105", name: "Introduction to ICT",          venue: null,         start: "09:15" },
+    { iso: "2026-10-27", day: "Tuesday",   code: "ENGL-1118", name: "Functional English",           venue: null,         start: "09:15" },
+    { iso: "2026-10-28", day: "Wednesday", code: "PHYS-1135", name: "Natural Sciences",             venue: null,         start: "09:15" },
+    { iso: "2026-10-29", day: "Thursday",  code: "DASC-1101", name: "Introduction to Data Science", venue: "COSC 1.03R", start: "11:25" },
+    { iso: "2026-10-30", day: "Friday",    code: "ISLS-1112", name: "Islamic Studies",              venue: null,         start: "09:15" },
+    { iso: "2026-10-31", day: "Saturday",  code: "DASC-1102", name: "Programming Fundamentals",     venue: "COSC-2.16L", start: "11:25" }
   ];
   var MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
   var KEY = "dasc1a-datesheet-v1";
   var filter = "all";
+  var editing = {};
+  var lastKey = null;
   var state = { done: {}, notes: {} };
 
   function $(id) { return document.getElementById(id); }
@@ -323,14 +328,26 @@ textarea { resize: vertical; min-height: 64px; font-size: 14px; }
     try { var s = JSON.parse(localStorage.getItem(KEY) || "null"); if (s && s.done && s.notes) state = s; } catch (e) {}
   }
   function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
 
   function pkToday() { return new Date(Date.now() + 5 * 3600 * 1000).toISOString().slice(0, 10); }
-  function startMs(iso) { return Date.parse(iso + "T00:00:00+05:00"); }
+  function startMs(e) { return Date.parse(e.iso + "T" + e.start + ":00+05:00"); }
+  function endMs(e) { return startMs(e) + DUR * 60000; }
   function status(e) {
-    var t = pkToday();
-    return e.iso < t ? "past" : (e.iso === t ? "today" : "upcoming");
+    var n = Date.now();
+    if (n > endMs(e)) return "past";
+    if (n >= startMs(e)) return "live";
+    return e.iso === pkToday() ? "today" : "upcoming";
   }
   function parts(iso) { var p = iso.split("-"); return { y: +p[0], m: +p[1] - 1, d: +p[2] }; }
+  function fmt(mins) {
+    var h = Math.floor(mins / 60), m = mins % 60, ap = h >= 12 ? "pm" : "am";
+    h = h % 12; if (h === 0) h = 12;
+    return h + ":" + pad(m) + " " + ap;
+  }
+  function startMin(e) { var t = e.start.split(":"); return +t[0] * 60 + +t[1]; }
+  function timeRange(e) { return fmt(startMin(e)) + " to " + fmt(startMin(e) + DUR); }
   function longDate(e) { var p = parts(e.iso); return e.day + ", " + p.d + " " + MONTHS[p.m] + " " + p.y; }
   function venueText(e) { return e.venue ? e.venue : "Venue to be announced by the exam department"; }
   function nextExam() {
@@ -338,36 +355,64 @@ textarea { resize: vertical; min-height: 64px; font-size: 14px; }
     return null;
   }
   function gcal(e) {
-    var p = parts(e.iso);
-    function pad(n) { return (n < 10 ? "0" : "") + n; }
-    var s = p.y + pad(p.m + 1) + pad(p.d);
-    var n = new Date(Date.UTC(p.y, p.m, p.d + 1));
-    var end = n.getUTCFullYear() + pad(n.getUTCMonth() + 1) + pad(n.getUTCDate());
-    var q = "action=TEMPLATE" +
+    var p = parts(e.iso), s = startMin(e), t = s + DUR;
+    var day = p.y + pad(p.m + 1) + pad(p.d);
+    var a = day + "T" + pad(Math.floor(s / 60)) + pad(s % 60) + "00";
+    var b = day + "T" + pad(Math.floor(t / 60)) + pad(t % 60) + "00";
+    return "https://calendar.google.com/calendar/render?action=TEMPLATE" +
       "&text=" + encodeURIComponent(e.name + " exam (" + e.code + ")") +
-      "&dates=" + s + "/" + end +
-      "&details=" + encodeURIComponent("BS-DASC-1A · " + e.marks + " marks · " + venueText(e) + ". Start time not yet announced.") +
+      "&dates=" + a + "/" + b + "&ctz=Asia%2FKarachi" +
+      "&details=" + encodeURIComponent("BS-DASC-1A · " + MARKS + " marks · " + DUR + " minutes · " + venueText(e)) +
       "&location=" + encodeURIComponent(e.venue || "");
-    return "https://calendar.google.com/calendar/render?" + q;
   }
 
-  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
-
   function renderSummary() {
-    var gaps = true;
-    for (var i = 1; i < EXAMS.length; i++) {
-      if (startMs(EXAMS[i].iso) - startMs(EXAMS[i - 1].iso) !== 86400000) gaps = false;
+    $("summary").textContent = EXAMS.length + " papers on consecutive days, 26 to 31 October 2026. Each paper is " + MARKS + " marks and " + DUR + " minutes.";
+  }
+
+  function renderHero() {
+    var nx = nextExam();
+    if (!nx) {
+      $("heroLabel").textContent = "All papers";
+      $("heroTitle").textContent = "Exams are finished";
+      $("heroMeta").textContent = "Every paper on this date sheet has passed.";
+      $("clockDigits").hidden = true;
+      $("clockState").hidden = false;
+      $("clockState").textContent = "Done";
+      return;
     }
-    $("summary").textContent = EXAMS.length + " papers on " + EXAMS.length + " consecutive days, 26 to 31 October 2026" +
-      (gaps ? ". There is no rest day between papers." : ".");
+    var st = status(nx);
+    $("heroLabel").textContent = st === "live" ? "Paper in progress" : (st === "today" ? "Paper today" : "Next paper");
+    $("heroTitle").textContent = nx.name;
+    $("heroMeta").textContent = longDate(nx) + " · " + timeRange(nx) + " · " + nx.code + " · " + (nx.venue || "Venue to be announced");
+  }
+
+  function tick() {
+    var nx = nextExam();
+    var key = nx ? nx.code + status(nx) : "none";
+    if (key !== lastKey) { lastKey = key; renderHero(); renderAll(); }
+    if (!nx) return;
+    if (status(nx) === "live") {
+      var left = Math.ceil((endMs(nx) - Date.now()) / 60000);
+      $("clockDigits").hidden = true;
+      $("clockState").hidden = false;
+      $("clockState").textContent = "Live · " + left + " min left";
+      return;
+    }
+    $("clockState").hidden = true;
+    $("clockDigits").hidden = false;
+    var diff = Math.max(0, startMs(nx) - Date.now());
+    $("cd").textContent = Math.floor(diff / 86400000);
+    $("ch").textContent = pad(Math.floor(diff % 86400000 / 3600000));
+    $("cm").textContent = pad(Math.floor(diff % 3600000 / 60000));
+    $("cs").textContent = pad(Math.floor(diff % 60000 / 1000));
   }
 
   function renderStrip() {
-    var nx = nextExam();
-    var html = "";
+    var nx = nextExam(), html = "";
     EXAMS.forEach(function (e) {
       var st = status(e), p = parts(e.iso);
-      var cls = "chip " + st + (nx && nx.code === e.code ? " next" : "") + (state.done[e.code] ? " prepared" : "");
+      var cls = "chip " + (st === "live" ? "today" : st) + (nx && nx.code === e.code ? " next" : "") + (state.done[e.code] ? " prepared" : "");
       html += '<div class="' + cls + '"><strong>' + p.d + "</strong>" + e.day.slice(0, 3) + "</div>";
     });
     $("strip").innerHTML = html;
@@ -379,42 +424,21 @@ textarea { resize: vertical; min-height: 64px; font-size: 14px; }
     $("progBar").style.width = (n / EXAMS.length * 100) + "%";
   }
 
-  function renderHeroStatic() {
-    var nx = nextExam();
-    if (!nx) {
-      $("heroLabel").textContent = "All papers";
-      $("heroTitle").textContent = "Exams are finished";
-      $("heroMeta").textContent = "Every paper on this date sheet has passed.";
-      $("clock").innerHTML = '<div class="hero-state">Done</div>';
-      return;
+  function noteHtml(e) {
+    var c = e.code, saved = state.notes[c];
+    if (editing[c]) {
+      return '<div class="note-edit">' +
+        '<label class="sr" for="note-' + c + '">Note for ' + esc(e.name) + "</label>" +
+        '<textarea id="note-' + c + '" placeholder="Chapters to revise, things to bring, anything to remember">' + esc(saved || "") + "</textarea>" +
+        '<div class="note-btns"><button type="button" class="btn primary" data-act="save" data-code="' + c + '">Save note</button>' +
+        '<button type="button" class="btn" data-act="cancel" data-code="' + c + '">Cancel</button></div></div>';
     }
-    var today = status(nx) === "today";
-    $("heroLabel").textContent = today ? "Paper today" : "Next paper";
-    $("heroTitle").textContent = nx.name;
-    $("heroMeta").textContent = longDate(nx) + " · " + nx.code + " · " + (nx.venue || "Venue to be announced");
-  }
-
-  function tick() {
-    var nx = nextExam();
-    if (!nx) return;
-    if (status(nx) === "today") {
-      if (!document.querySelector(".hero-state")) {
-        $("clock").innerHTML = '<div class="hero-state">Today</div>';
-        renderHeroStatic();
-      }
-      return;
+    if (saved) {
+      return '<div class="saved"><span class="saved-label">Your note</span><p>' + esc(saved) + "</p>" +
+        '<div class="row"><button type="button" class="link" data-act="edit" data-code="' + c + '">Edit</button>' +
+        '<button type="button" class="link" data-act="delete" data-code="' + c + '">Delete</button></div></div>';
     }
-    var diff = Math.max(0, startMs(nx.iso) - Date.now());
-    var d = Math.floor(diff / 86400000);
-    var h = Math.floor(diff % 86400000 / 3600000);
-    var m = Math.floor(diff % 3600000 / 60000);
-    var s = Math.floor(diff % 60000 / 1000);
-    function two(n) { return (n < 10 ? "0" : "") + n; }
-    var a = $("cd"); if (!a) return;
-    a.textContent = d;
-    $("ch").textContent = two(h);
-    $("cm").textContent = two(m);
-    $("cs").textContent = two(s);
+    return '<div><button type="button" class="btn" data-act="edit" data-code="' + c + '">Add note</button></div>';
   }
 
   function renderList() {
@@ -425,7 +449,7 @@ textarea { resize: vertical; min-height: 64px; font-size: 14px; }
       if (filter === "up" && st === "past") return false;
       if (filter === "done" && st !== "past") return false;
       if (!q) return true;
-      return (e.name + " " + e.code + " " + (e.venue || "to be announced tba") + " " + e.day).toLowerCase().indexOf(q) !== -1;
+      return (e.name + " " + e.code + " " + (e.venue || "to be announced tba") + " " + e.day + " " + timeRange(e)).toLowerCase().indexOf(q) !== -1;
     });
     if (!rows.length) {
       $("list").innerHTML = '<div class="empty">No papers match. Clear the search or switch the filter to All.</div>';
@@ -435,31 +459,26 @@ textarea { resize: vertical; min-height: 64px; font-size: 14px; }
     rows.forEach(function (e) {
       var st = status(e), p = parts(e.iso);
       var checked = state.done[e.code] ? " checked" : "";
-      var note = state.notes[e.code] || "";
-      var open = note ? " open" : "";
       var venueTag = e.venue
         ? '<span class="tag room">' + esc(e.venue) + "</span>"
         : '<span class="tag pending">Venue to be announced</span>';
+      var badge = st === "live" ? '<span class="tag room">In progress</span>'
+        : st === "today" ? '<span class="tag room">Today</span>'
+        : (nx && nx.code === e.code ? '<span class="tag room">Next up</span>' : "");
       html +=
-        '<article class="paper ' + st + '" data-code="' + e.code + '">' +
+        '<article class="paper ' + st + '">' +
           '<div class="date"><span class="w">' + e.day.slice(0, 3) + '</span><span class="d">' + p.d + '</span><span class="m">' + MONTHS[p.m].slice(0, 3) + " " + p.y + "</span></div>" +
           '<div class="body">' +
             '<div class="top"><h2 class="name">' + esc(e.name) + '</h2><span class="code">' + e.code + "</span></div>" +
-            '<div class="facts">' + venueTag +
-              '<span class="tag">' + e.marks + " marks</span>" +
-              '<span class="tag pending">Time to be announced</span>' +
-              (st === "today" ? '<span class="tag room">Today</span>' : "") +
-              (nx && nx.code === e.code && st !== "today" ? '<span class="tag room">Next up</span>' : "") +
+            '<div class="facts"><span class="tag">' + timeRange(e) + "</span>" +
+              '<span class="tag">' + DUR + " min</span>" +
+              '<span class="tag">' + MARKS + " marks</span>" + venueTag + badge +
             "</div>" +
             '<div class="acts">' +
               '<label class="check" for="prep-' + e.code + '"><input type="checkbox" id="prep-' + e.code + '" data-prep="' + e.code + '"' + checked + "> Prepared</label>" +
               '<a class="link" href="' + gcal(e) + '" target="_blank" rel="noopener">Add to Google Calendar</a>' +
-              '<button type="button" class="link" data-note="' + e.code + '">' + (note ? "Edit note" : "Add note") + "</button>" +
             "</div>" +
-            '<div class="note' + open + '" id="note-wrap-' + e.code + '">' +
-              '<label class="sr" for="note-' + e.code + '">Note for ' + esc(e.name) + "</label>" +
-              '<textarea id="note-' + e.code + '" data-notefield="' + e.code + '" placeholder="Chapters to revise, things to bring, anything to remember">' + esc(note) + "</textarea>" +
-            "</div>" +
+            noteHtml(e) +
           "</div>" +
         "</article>";
     });
@@ -476,9 +495,9 @@ textarea { resize: vertical; min-height: 64px; font-size: 14px; }
   }
 
   function sheetText() {
-    var lines = ["BS-DASC-1A Date Sheet (exam times not yet announced)", ""];
+    var lines = ["BS-DASC-1A Date Sheet (" + MARKS + " marks, " + DUR + " minutes each)", ""];
     EXAMS.forEach(function (e) {
-      lines.push(longDate(e) + " | " + e.code + " | " + e.name + " | " + (e.venue || "Venue TBA") + " | " + e.marks + " marks");
+      lines.push(longDate(e) + " | " + timeRange(e) + " | " + e.code + " | " + e.name + " | " + (e.venue || "Venue TBA"));
     });
     return lines.join("\n");
   }
@@ -518,28 +537,24 @@ textarea { resize: vertical; min-height: 64px; font-size: 14px; }
     if (ev.target.checked) state.done[c] = true; else delete state.done[c];
     save(); renderStrip(); renderProgress();
   });
-  $("list").addEventListener("input", function (ev) {
-    var c = ev.target.getAttribute("data-notefield");
-    if (!c) return;
-    var v = ev.target.value;
-    if (v.trim()) state.notes[c] = v; else delete state.notes[c];
-    save();
-  });
   $("list").addEventListener("click", function (ev) {
-    var c = ev.target.getAttribute && ev.target.getAttribute("data-note");
-    if (!c) return;
-    var w = $("note-wrap-" + c);
-    w.classList.toggle("open");
-    if (w.classList.contains("open")) $("note-" + c).focus();
+    var b = ev.target.closest ? ev.target.closest("[data-act]") : null;
+    if (!b) return;
+    var act = b.getAttribute("data-act"), c = b.getAttribute("data-code");
+    if (act === "edit") { editing[c] = true; renderList(); var f = $("note-" + c); if (f) { f.focus(); f.setSelectionRange(f.value.length, f.value.length); } }
+    else if (act === "cancel") { delete editing[c]; renderList(); }
+    else if (act === "delete") { delete state.notes[c]; save(); renderList(); toast("Note deleted"); }
+    else if (act === "save") {
+      var v = $("note-" + c).value.trim();
+      if (v) { state.notes[c] = v; toast("Note saved"); } else { delete state.notes[c]; }
+      delete editing[c]; save(); renderList();
+    }
   });
 
   load();
   renderSummary();
-  renderHeroStatic();
-  renderAll();
   tick();
-  setInterval(function () { tick(); }, 1000);
-  setInterval(function () { renderHeroStatic(); renderStrip(); }, 60000);
+  setInterval(tick, 1000);
 })();
 </script>
 
